@@ -1,0 +1,6 @@
+{
+  "name": "Sari Madu Recruitment - Karir Admin",
+  "description": "Halaman karir resmi Sari Madu Recruitment di Samarinda, Kalimantan Timur untuk posisi Admin Distribusi, Admin Logistik & Proyek, serta Admin Umum.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
