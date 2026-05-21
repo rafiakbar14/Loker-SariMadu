@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 import { 
   Sun, Moon, HelpCircle
 } from 'lucide-react';
 
 import { JOB_POSITIONS } from './data';
-import { JobPosition } from './types';
 
 // Component imports
 import BrandHeader from './components/BrandHeader';
 import JobCard from './components/JobCard';
-import JobDetailsModal from './components/JobDetailsModal';
 
 export default function App() {
-  const [selectedJob, setSelectedJob] = useState<JobPosition | null>(null);
   const [darkMode, setDarkMode] = useState(false);
 
   // Theme support
@@ -60,8 +56,6 @@ export default function App() {
                 <JobCard
                   key={pos.id}
                   position={pos}
-                  onViewDetails={(job) => setSelectedJob(job)}
-                  onQuickApply={(job) => setSelectedJob(job)}
                 />
               ))}
             </div>
@@ -74,9 +68,9 @@ export default function App() {
               Petunjuk Pendaftaran Kerja
             </span>
             <p>
-              1. Pilih posisi jabatan yang sesuai dengan kompetensi Anda di atas. <br />
-              2. Klik <span className="font-semibold text-slate-700 dark:text-slate-300">&quot;Info & Lamar&quot;</span> untuk membaca rincian lengkap tugas, syarat, dan benefit menarik yang didapatkan. <br />
-              3. Klik tombol <span className="font-semibold text-amber-600">Kirim Lamaran di Portal Resmi Talenta</span> untuk mengirimkan CV langsung ke sistem HRD Sari Madu Recruitment.
+              1. Klik pendaftaran atau tombol <span className="font-semibold text-slate-700 dark:text-slate-300">&quot;Lamar Sekarang&quot;</span> pada posisi yang Anda minati di atas. <br />
+              2. Anda akan langsung diarahkan ke portal resmi **Talenta** Sari Madu Bakery. <br />
+              3. Isi formulir pendaftaran dan unggah CV terbaik Anda langsung ke sistem pencatatan HRD.
             </p>
           </div>
         </main>
@@ -84,17 +78,8 @@ export default function App() {
         {/* Global Footer */}
         <footer className="w-full text-center py-6 border-t border-slate-200/45 dark:border-slate-900 bg-white/30 dark:bg-slate-950/20 backdrop-blur-xs text-[11px] text-slate-400 dark:text-slate-500 space-y-1 font-mono">
           <p>© {new Date().getFullYear()} Sari Madu Recruitment • Samarinda, Kalimantan Timur.</p>
-          <p className="opacity-75">Sistem Lowongan Kerja Terpadu</p>
+          <p className="opacity-75">Sistem Lowongan Kerja Terpadu • Terkoneksi Resmi ke Talenta</p>
         </footer>
-
-        {/* Job Specs drawer / App form modal popup state */}
-        {selectedJob && (
-          <JobDetailsModal
-            position={selectedJob}
-            isOpen={!!selectedJob}
-            onClose={() => setSelectedJob(null)}
-          />
-        )}
 
       </div>
     </div>
