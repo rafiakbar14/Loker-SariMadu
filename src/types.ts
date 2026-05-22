@@ -1,4 +1,11 @@
-export type JobPositionId = 'admin_distribusi' | 'admin_logistik_proyek' | 'admin_umum';
+export type JobPositionId =
+  | 'crew_store'
+  | 'kasir'
+  | 'waiters'
+  | 'koki_produksi'
+  | 'packing'
+  | 'cleaning_service'
+  | 'dishwasher';
 
 export interface JobPosition {
   id: JobPositionId;
